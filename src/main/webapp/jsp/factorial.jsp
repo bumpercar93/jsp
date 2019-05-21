@@ -18,7 +18,6 @@
 		return result;
 	}
 	%>
-	
 	<b>Factorial 구하기</b> <br>
 	0! : <%= factorial(0) %><br>	
 	1! : <%= factorial(1) %><br>	
