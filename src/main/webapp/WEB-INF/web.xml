@@ -11,7 +11,7 @@
   </welcome-file-list>
   
   <servlet>
-	<servlet-class>kr.or.ddit.servelt.BasicSevlet</servlet-class>
+	<servlet-class>kr.or.ddit.servlet.BasicSevlet</servlet-class>
 	<servlet-name>basicSevlet</servlet-name>  
   </servlet>
   <servlet-mapping>
