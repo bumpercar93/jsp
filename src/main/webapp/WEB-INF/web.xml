@@ -9,34 +9,28 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
-	<servlet-class>kr.or.ddit.servelt.BasicSevlet</servlet-class>
-	<servlet-name>basicSevlet</servlet-name>  
+    <servlet-name>basicSevlet</servlet-name>
+    <servlet-class>kr.or.ddit.servelt.BasicSevlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>basicSevlet</servlet-name>
-  	<url-pattern>/bs</url-pattern>
+    <servlet-name>basicSevlet</servlet-name>
+    <url-pattern>/bs</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-	<servlet-class>kr.or.ddit.servlet.NowDate</servlet-class>
-	<servlet-name>nowDate</servlet-name>  
+    <servlet-name>nowDate</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.NowDate</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>nowDate</servlet-name>
-  	<url-pattern>/nowDate</url-pattern>
+    <servlet-name>nowDate</servlet-name>
+    <url-pattern>/nowDate</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-	<servlet-class>kr.or.ddit.servlet.Gugudan</servlet-class>
-	<servlet-name>gugudan</servlet-name>  
+    <servlet-name>gugudan</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.Gugudan</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>gugudan</servlet-name>
-  	<url-pattern>/timesTables</url-pattern>
+    <servlet-name>gugudan</servlet-name>
+    <url-pattern>/timesTables</url-pattern>
   </servlet-mapping>
-
-
-
 </web-app>
