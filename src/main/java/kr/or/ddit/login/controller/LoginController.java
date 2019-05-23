@@ -7,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import kr.or.ddit.user.model.UserVO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +46,15 @@ public class LoginController extends HttpServlet {
 		// 단순 login화면을 html로 응답을 생성해주는 작업이 필요
 		// /login/login.jsp로 위임 
 		//	 -> 서버상에 별도의 상태 변경을 가하는 요청이 아니기 때문에 dispatch 방식으로 위임
-		request.getRequestDispatcher("/login/login.jsp").forward(request, response);
+		
+		if(request.getSession().getAttribute("USER_INFO") == null){
+			// session에 사용자 정보가 없을 경우 --> 기존 로직
+			request.getRequestDispatcher("/login/login.jsp").forward(request, response);
+		}else{
+			// session에 사용자 정보가 있을 경우 --> main 화면으로 이동
+			request.getRequestDispatcher("/main.jsp").forward(request, response);
+		}
+		
 	}
 
 	// 로그인 요청을 처리
@@ -62,6 +73,10 @@ public class LoginController extends HttpServlet {
 		
 		// 일치하면 -> 로그인 성공 -> main 화면으로 이동
 		if(userId.equals("brown") && password.equals("brown1234")){
+			
+			// session에 사용자 정보를 넣어준다(사용빈도가 높기때문에)
+			HttpSession session = request.getSession();
+			session.setAttribute("USER_INFO", new UserVO("브라운", "brown", "곰"));
 			
 			request.getRequestDispatcher("/main.jsp").forward(request, response);
 			
