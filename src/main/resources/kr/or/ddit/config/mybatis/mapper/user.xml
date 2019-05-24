@@ -5,6 +5,14 @@
 
 <mapper namespace="user">
 	<select id="userList" resultType="userVO">
-		select * from users
+		select 	* 
+		from 	users
+		order by userid
+	</select>
+	
+	<select id="getUser" resultType="userVO" parameterType="String">
+		select	*
+		from	users
+		where	userid = #{userid}
 	</select>
 </mapper>

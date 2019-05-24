@@ -12,8 +12,19 @@ public interface IUserService {
 	* 작성자 : PC06
 	* 변경이력 :
 	* @return
-	* Method 설명 : 사용자 전체 리스트 조회
+	* Method 설명 : 사용자 전체 조회
 	*/
-	public List<UserVO> userList();
+	List<UserVO> userList();
+	
+	/**
+	* 
+	* Method : getUser
+	* 작성자 : PC06
+	* 변경이력 :
+	* @param userId
+	* @return
+	* Method 설명 : 사용자 정보 조회
+	*/
+	UserVO getUser(String userId);
 	
 }
