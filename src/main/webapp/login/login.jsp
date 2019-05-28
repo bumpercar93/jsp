@@ -38,18 +38,18 @@
 			
 			// singin button 클릭 시 실행되는 핸들러
 			$("#singinBtn").on("click", function() {
-				if($("#rememberme").is(":checked")) {
-					// 만약에 rememberme 체크박스가 체크되어 있는 경우
-					// -사용자 아이디 값을 userId 쿠키로 저장
-					// -true 값을 rememberme 쿠키 값으로 저장
-					Cookies.set("userId", $("#userId").val(), {expires : 30});
-					Cookies.set("rememberme", "true", {expires : 30});
-				}else {
-					// 만약에 rememberme 체크박스가 해제되어 있는 경우
-					// userId, rememberme cookie 값을 삭제
-					Cookies.remove("userId");
-					Cookies.remove("rememberme");
-				}
+// 				if($("#rememberme").is(":checked")) {
+// 					// 만약에 rememberme 체크박스가 체크되어 있는 경우
+// 					// -사용자 아이디 값을 userId 쿠키로 저장
+// 					// -true 값을 rememberme 쿠키 값으로 저장
+// 					Cookies.set("userId", $("#userId").val(), {expires : 30});
+// 					Cookies.set("rememberme", "true", {expires : 30});
+// 				}else {
+// 					// 만약에 rememberme 체크박스가 해제되어 있는 경우
+// 					// userId, rememberme cookie 값을 삭제
+// 					Cookies.remove("userId");
+// 					Cookies.remove("rememberme");
+// 				}
 				// 로그인 요청을 서버로 전송
 				$("#frm").submit();
 			});
@@ -114,7 +114,7 @@
         
         <div class="checkbox">
           <label>
-            <input id="rememberme" type="checkbox" value="remember-me"> Remember me
+            <input id="rememberme" name="rememberme" type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
         <button id="singinBtn" class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
