@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -33,7 +34,7 @@
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<div class="row">
 						<div class="col-sm-8 blog-main">
-							<h2 class="sub-header">사용자</h2>
+							<h2 class="sub-header">사용자(EL)</h2>
 							<div class="table-responsive">
 								<table class="table table-striped">
 									<tr>
@@ -42,15 +43,16 @@
 										<th>사용자 별명</th>
 										<th>등록일시</th>
 									</tr>
-									<%List<UserVO> userList = (List<UserVO>) request.getAttribute("userPagingList");
-									for(UserVO uVO : userList){%>
+									
+									<c:forEach items="${userPagingList}" var="user">
 										<tr>
-											<td><%=uVO.getUserId() %></td>
-											<td><%=uVO.getName() %></td>
-											<td><%=uVO.getAlias() %></td>
+											<td>${user.userId}</td>
+											<td>${user.name}</td>
+											<td>${user.alias}</td>
 											<td>2019.05.23</td>
 										</tr>
-									<%}%>
+									</c:forEach>
+									
 								</table>
 							</div>
 							<a class="btn btn-default pull-right">사용자 등록</a>
@@ -64,7 +66,7 @@
 										<li class="disabled"><span>«</span></li>
 									<%}else {%>
 										<li>
-											<a href="<%=request.getContextPath()%>/userPagingList?page=<%=pageVO.getPage()-1%>
+											<a href="${pageContext.request.contextPath}/userPagingList?page=<%=pageVO.getPage()-1%>
 											&pageSize=<%=pageVO.getPageSize()%>"><span>«</span></a>
 										</li>
 									<%}%>
@@ -78,7 +80,7 @@
 												</li>
 											<%}else {%>
 												<li>
-													<a href="<%=request.getContextPath()%>/userPagingList?page=<%=i%>
+													<a href="${pageContext.request.contextPath}/userPagingList?page=<%=i%>
 													&pageSize=<%=pageVO.getPageSize()%>"><%=i%></a>
 												</li>
 											<%}
@@ -88,7 +90,7 @@
 										<li class="disabled"><span>»</span></li>
 									<%}else {%>
 										<li>
-											<a href="<%=request.getContextPath()%>/userPagingList?page=<%=pageVO.getPage()+1%>
+											<a href="${pageContext.request.contextPath}/userPagingList?page=<%=pageVO.getPage()+1%>
 											&pageSize=<%=pageVO.getPageSize()%>"><span>»</span></a>
 										</li>
 									<%}%>

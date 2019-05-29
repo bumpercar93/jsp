@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -32,7 +33,7 @@
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<div class="row">
 						<div class="col-sm-8 blog-main">
-							<h2 class="sub-header">사용자</h2>
+							<h2 class="sub-header">사용자(EL)</h2>
 							<div class="table-responsive">
 								<table class="table table-striped">
 									<tr>
@@ -41,15 +42,17 @@
 										<th>사용자 별명</th>
 										<th>등록일시</th>
 									</tr>
-									<%List<UserVO> userList = (List<UserVO>) request.getAttribute("userList");
-									for(UserVO uVO : userList){%>
+									
+									<!-- userList의 데이터를 한건 조회해서 pageContext.setAttribute("user", vo); -->
+									<c:forEach items="${userList}" var="user">
 										<tr>
-											<td><%=uVO.getUserId() %></td>
-											<td><%=uVO.getName() %></td>
-											<td><%=uVO.getAlias() %></td>
+											<td>${user.userId}</td>
+											<td>${user.name}</td>
+											<td>${user.alias}</td>
 											<td>2019.05.23</td>
 										</tr>
-									<%}%>
+									</c:forEach>
+									
 								</table>
 							</div>
 							<a class="btn btn-default pull-right">사용자 등록</a>

@@ -108,7 +108,8 @@ public class LoginController extends HttpServlet {
 			// login 화면으로 이동 : localhost/jsp/login
 			// 현상황에서 /jsp/login url로 dispatch 방식으로 위임이 불가
 			// request.getMethod(); // GET, POST
-			response.sendRedirect(request.getContextPath() + "/login");
+			// response.sendRedirect(request.getContextPath() + "/login");
+			request.getRequestDispatcher("/login/login.jsp").forward(request, response);
 		}
 		
 	}// doPost

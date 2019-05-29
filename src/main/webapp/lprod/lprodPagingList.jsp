@@ -62,7 +62,7 @@
 										<li class="disabled"><span>«</span></li>
 									<%}else {%>
 										<li>
-											<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=pageVO.getPage()-1%>
+											<a href="${pageContext.request.contextPath}/lprodPagingList?page=<%=pageVO.getPage()-1%>
 											&pageSize=<%=pageVO.getPageSize()%>"><span>«</span></a>
 										</li>
 									<%}%>
@@ -76,7 +76,7 @@
 												</li>
 											<%}else {%>
 												<li>
-													<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=i%>
+													<a href="${pageContext.request.contextPath}/lprodPagingList?page=<%=i%>
 													&pageSize=<%=pageVO.getPageSize()%>"><%=i%></a>
 												</li>
 											<%}
@@ -86,7 +86,7 @@
 										<li class="disabled"><span>»</span></li>
 									<%}else {%>
 										<li>
-											<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=pageVO.getPage()+1%>
+											<a href="${pageContext.request.contextPath}/lprodPagingList?page=<%=pageVO.getPage()+1%>
 											&pageSize=<%=pageVO.getPageSize()%>"><span>»</span></a>
 										</li>
 									<%}%>
