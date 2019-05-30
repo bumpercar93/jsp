@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.or.ddit.user.model.UserVO;
+import kr.or.ddit.user.service.IUserService;
+import kr.or.ddit.user.service.UserServiceImpl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,11 +41,20 @@ public class LoginController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     
+	private IUserService userService;
+	
+	@Override
+	public void init() throws ServletException {
+		userService = new UserServiceImpl();
+	}
+	
 	// 사용자 로그인 화면 요청 처리
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		for(Cookie cookie : request.getCookies()){
-			logger.debug("cookie : {}, {}", cookie.getName(), cookie.getValue());
+		if(request.getCookies() != null) {
+			for(Cookie cookie : request.getCookies()){
+				logger.debug("cookie : {}, {}", cookie.getName(), cookie.getValue());
+			}
 		}
 		
 		// login 화면을 처리해줄 누군가(??)에게 위임
@@ -78,7 +89,8 @@ public class LoginController extends HttpServlet {
 		// --> userId : brown이고 password : brown1234라는 값일 때 통과, 그 이외 값을 불일치
 		
 		// 일치하면 -> 로그인 성공 -> main 화면으로 이동
-		if(userId.equals("brown") && password.equals("brown1234")){
+		UserVO userVO = userService.getUser(userId);
+		if(userVO != null && password.equals(userVO.getPass())){
 			
 			int cookieMaxAge = 0;
 			
@@ -100,7 +112,7 @@ public class LoginController extends HttpServlet {
 			
 			// session에 사용자 정보를 넣어준다(사용빈도가 높기때문에)
 			HttpSession session = request.getSession();
-			session.setAttribute("USER_INFO", new UserVO("브라운", "brown", "곰"));
+			session.setAttribute("USER_INFO", userVO);
 			
 			request.getRequestDispatcher("/main.jsp").forward(request, response);
 			
