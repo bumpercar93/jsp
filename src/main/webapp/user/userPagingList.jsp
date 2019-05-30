@@ -20,8 +20,39 @@
 		
 		<!-- css, js -->
 		<%@include file="/common/basicLib.jsp" %>
+	
+	<style type="text/css">
+		.userTr:hover{
+			cursor: pointer;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	
+		$(document).ready(function() {
+			
+			//사용자 tr태그 이벤트 등록
+			$(".userTr").on("click", function() {
+				console.log("userTr click");
+				// 현재 클릭한 userId 찾기
+				// 1.$(this).find(".userId").text();
+				// 2.$(this).data("userid");
+				
+				// 사용자 아이디를 userId 값으로 설정
+				var userId = $(this).find(".userId").text();
+				$("#userId").val(userId);
+				
+				// #frm을 이용하여 submit();
+				$("#frm").submit();
+			});
+			
+		});
+		
+	</script>
+	
 	</head>
-
+	
+	
 	<body>
 		<!-- header -->
 		<%@include file="/common/header.jsp" %>
@@ -35,6 +66,12 @@
 					<div class="row">
 						<div class="col-sm-8 blog-main">
 							<h2 class="sub-header">사용자(EL)</h2>
+							
+							<!-- 사용자 상세조회 : userId가 필요 -->
+							<form id="frm" action="${pageContext.request.contextPath}/user" method="get">
+								<input type="hidden" id="userId" name="userId" />
+							</form>
+							
 							<div class="table-responsive">
 								<table class="table table-striped">
 									<tr>
@@ -46,9 +83,9 @@
 									
 									<!-- 향상된 for -->
 									<c:forEach items="${userPagingList}" var="user" varStatus="status">
-										<tr>
+										<tr class="userTr" data-userid="${user.userId}" data-name="${user.name}">
 										<%-- <td>${status.index} / ${status.count} / ${user.userId}</td> --%>
-											<td>${user.userId}</td>
+											<td class="userId">${user.userId}</td>
 											<td>${user.name}</td>
 											<td>${user.alias}</td>
 											<td>2019.05.23</td>
