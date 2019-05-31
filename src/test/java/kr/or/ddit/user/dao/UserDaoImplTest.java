@@ -2,6 +2,9 @@ package kr.or.ddit.user.dao;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import kr.or.ddit.paging.model.PageVO;
@@ -135,6 +138,63 @@ public class UserDaoImplTest {
 		
 		/***Then***/
 		assertEquals(105, usersCnt);
+	}
+	
+	/**
+	 * 
+	* Method : insertUserTest
+	* 작성자 : PC06
+	* 변경이력 :
+	* Method 설명 : 사용자 등록 테스트
+	 */
+	@Test
+	public void insertUserTest() {
+		/***Given***/
+		// 사용자 정보를 담고 있는 VO객체 준비
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		UserVO userVO = null;
+		try {
+			userVO = new UserVO("testName", "testId", "testAlias", "test1234", 
+					"testAddr1", "testAddr2", "12345", sdf.parse("1993-10-17"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		/***When***/
+		// userDao.insertUser();
+		int insertCnt = userDao.insertUser(userVO);
+		
+		/***Then***/
+		assertEquals(1, insertCnt);
+		
+		//data 삭제
+		userDao.deleteUser(userVO.getUserId());
+	}
+	
+	/**
+	 * 
+	* Method : updateUserTest
+	* 작성자 : PC06
+	* 변경이력 :
+	* Method 설명 : 사용자 수정 테스트
+	 */
+	@Test
+	public void updateUserTest() {
+		/***Given***/
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		UserVO userVO = null;
+		try {
+			userVO = new UserVO("test", "testId", "test", "test1234", "test", "test", "12345", sdf.parse("2019-05-31"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		/***When***/
+		int updateCnt = userDao.updateUser(userVO);
+		
+		/***Then***/
+		assertEquals(1, updateCnt);
+		
 	}
 
 }

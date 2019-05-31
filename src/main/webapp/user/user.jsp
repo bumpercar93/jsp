@@ -27,6 +27,15 @@
 		height: 200px;
 	}
 </style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#modifyBtn").on("click", function() {
+			var userId = $("#idLabel").text();
+			$("#userId").val(userId);
+			$("#frm").submit();
+		});
+	});
+</script>
 
 </head>
 
@@ -43,9 +52,9 @@
 				<div class="row">
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자 상세정보</h2>
-						
-						<form class="form-horizontal" role="form">
-
+						<form id="frm" class="form-horizontal" role="form" method="get"
+								action="${pageContext.request.contextPath}/userModify">
+								<input type="hidden" id="userId" name="userId"/>
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">프로필 사진</label>
 								<div class="col-sm-10">
@@ -56,7 +65,7 @@
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 								<div class="col-sm-10">
-									<label class="control-label">${userVO.userId}</label>
+									<label id="idLabel" class="control-label">${userVO.userId}</label>
 								</div>
 							</div>
 
@@ -98,18 +107,16 @@
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
-									<label class="control-label">${userVO.birth}</label>
+									<label class="control-label">${userVO.birthstr}</label>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" class="btn btn-default">사용자 수정</button>
+									<button id="modifyBtn" type="button" class="btn btn-default">사용자 수정</button>
 								</div>
 							</div>
 							
-<!-- 						<input type="text" class="form-control" id="userId" -->
-<!-- 								name="userId" placeholder="사용자 아이디"> -->
 						</form>
 						
 					</div>

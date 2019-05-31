@@ -49,4 +49,36 @@ public interface IUserDao {
 	 */
 	int usersCnt();
 	
+	/**
+	 * 
+	* Method : insertUser
+	* 작성자 : PC06
+	* 변경이력 :
+	* @param userVO
+	* @return
+	* Method 설명 : 사용자 등록
+	 */
+	int insertUser(UserVO userVO);
+	
+	/**
+	 * 
+	* Method : deleteUser
+	* 작성자 : PC06
+	* 변경이력 :
+	* @param userId
+	* @return
+	* Method 설명 : 사용자 삭제
+	 */
+	int deleteUser(String userId);
+	
+	/**
+	 * 
+	* Method : updateUser
+	* 작성자 : PC06
+	* 변경이력 :
+	* @param userVO
+	* @return
+	* Method 설명 : 사용자 수정
+	 */
+	int updateUser(UserVO userVO);
 }
