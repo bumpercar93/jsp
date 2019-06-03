@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 import kr.or.ddit.user.model.UserVO;
 import kr.or.ddit.user.service.IUserService;
 import kr.or.ddit.user.service.UserServiceImpl;
@@ -57,11 +58,12 @@ public class UserModifyController extends HttpServlet {
 		String zipcd = request.getParameter("zipcd");
 		String birth = request.getParameter("birth");
 		String pass = request.getParameter("pass");
+		String encryptPass = KISA_SHA256.encrypt(pass);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		UserVO userVO = null;
 		try {
-			userVO = new UserVO(name, userId, alias, pass, addr1, addr2, zipcd, sdf.parse(birth));
+			userVO = new UserVO(name, userId, alias, encryptPass, addr1, addr2, zipcd, sdf.parse(birth));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
