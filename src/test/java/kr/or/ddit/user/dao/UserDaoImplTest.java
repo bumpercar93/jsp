@@ -154,8 +154,8 @@ public class UserDaoImplTest {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		UserVO userVO = null;
 		try {
-			userVO = new UserVO("testName", "testId", "testAlias", "test1234", 
-					"testAddr1", "testAddr2", "12345", sdf.parse("1993-10-17"));
+			userVO = new UserVO("testName", "testId", "testAlias", "test1234",
+								"testAddr1", "testAddr2", "12345", sdf.parse("1993-10-17"));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

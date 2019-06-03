@@ -1,24 +1,29 @@
 package kr.or.ddit.user.controller;
 
+import java.io.File;
 import java.io.IOException;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import kr.or.ddit.user.model.UserVO;
 import kr.or.ddit.user.service.IUserService;
 import kr.or.ddit.user.service.UserServiceImpl;
+import kr.or.ddit.util.PartUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @WebServlet("/userForm")
+@MultipartConfig(maxFileSize=1024*1024*3, maxRequestSize=1024*1024*15)
 public class UserFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory
@@ -66,6 +71,31 @@ public class UserFormController extends HttpServlet {
 		
 		// 등록된 사용자가 아닌 경우 --> 정상입력이 가능한 상황
 		if(dbUser == null) {
+			
+			// profile 파일 업로드 처리
+			Part profile = request.getPart("profile");
+			if(profile.getSize() > 0) { // 사용자가 파일을 업로드 할 경우
+				// 실제파일명
+				String contentDisposition = profile.getHeader("content-disposition");
+				String filename = PartUtil.getFileName(contentDisposition);
+				String ext = PartUtil.getExt(filename);
+				
+				String uploadPath = PartUtil.getUploadPath();
+				
+				File uploadFolder = new File(uploadPath);
+				if(uploadFolder.exists()) {
+					// 파일 디스크에 쓰기
+					String filePath = uploadPath + File.separator + UUID.randomUUID().toString() + ext;
+					
+					userVO.setPath(filePath);
+					userVO.setFilename(filename);
+					
+					profile.write(filePath);
+					profile.delete(); // 임시파일 지우기
+				}
+				
+			}
+			
 			int insertCnt = userService.insertUser(userVO);
 			
 			// 정상 등록된 경우

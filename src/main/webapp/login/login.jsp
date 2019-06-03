@@ -107,10 +107,12 @@
         <h2 class="form-signin-heading">Please sign in</h2>
         
         <label for="userId" class="sr-only">User ID</label>
-        <input type="text" id="userId" name="userId" class="form-control" placeholder="User ID" required value="${param.userId}">
+        <input type="text" id="userId" name="userId" class="form-control" placeholder="User ID" 
+        		required value="${param.userId}">
         
         <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Password" value="brown1234" required>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" 
+        		value="admin123" required>
         
         <div class="checkbox">
           <label>

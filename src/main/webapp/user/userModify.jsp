@@ -91,19 +91,20 @@
 						<h2 class="sub-header">사용자 수정</h2>
 						
 						<form id="frm" class="form-horizontal" role="form" 
-							action="${pageContext.request.contextPath}/userModify" method="post">
+							action="${pageContext.request.contextPath}/userModify" method="post"
+									enctype="multipart/form-data">
 
 							<div class="form-group">
 								<label for="filename" class="col-sm-2 control-label">프로필 사진</label>
 								<div class="col-sm-10">
-									<input type="file" name="filename"/>
+									<input type="file" name="profile"/>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
 								<div class="col-sm-10">
-									<label id="idLabel" for="userId" class="form-control">${param.userId}</label>
+									<label id="idLabel" for="userId" class="form-control">${userVO.userId}</label>
 									<input type="hidden" id="userId" name="userId"/>
 								</div>
 							</div>
