@@ -43,7 +43,6 @@
 										<th>상품분류코드</th>
 										<th>상품분류명</th>
 									</tr>
-									<%List<LprodVO> lprodList = (List<LprodVO>) request.getAttribute("lprodList");%>
 									
 									<c:forEach items="${lprodList}" var="lprod">
 										<tr>
