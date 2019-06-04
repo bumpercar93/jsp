@@ -72,4 +72,14 @@ public interface IUserService {
 	* Method 설명 : 사용자 수정
 	 */
 	int updateUser(UserVO userVO);
+	
+	/**
+	 * 
+	* Method : encryptPassAllUser
+	* 작성자 : PC06
+	* 변경이력 :
+	* @return
+	* Method 설명 : 사용자 비밀번호 암호화 일괄 적용 배치
+	 */
+	int encryptPassAllUser();
 }

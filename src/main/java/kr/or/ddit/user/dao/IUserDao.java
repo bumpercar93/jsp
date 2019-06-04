@@ -2,6 +2,8 @@ package kr.or.ddit.user.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
 import kr.or.ddit.paging.model.PageVO;
 import kr.or.ddit.user.model.UserVO;
 
@@ -81,4 +83,27 @@ public interface IUserDao {
 	* Method 설명 : 사용자 수정
 	 */
 	int updateUser(UserVO userVO);
+
+	/**
+	 * 
+	* Method : userListForPassEncrypt
+	* 작성자 : PC06
+	* 변경이력 :
+	* @param sqlSession
+	* @return
+	* Method 설명 : 비밀번호 암호화 적용대상 사용자 전체 조회
+	 */
+	List<UserVO> userListForPassEncrypt(SqlSession sqlSession);
+
+	/**
+	 * 
+	* Method : updateUserEncryptPass
+	* 작성자 : PC06
+	* 변경이력 :
+	* @param sqlSession
+	* @param userVO
+	* @return
+	* Method 설명 : 사용자 비밀번호 암호화 적용
+	 */
+	int updateUserEncryptPass(SqlSession sqlSession, UserVO userVO);
 }
