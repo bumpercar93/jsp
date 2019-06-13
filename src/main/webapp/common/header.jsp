@@ -13,7 +13,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">JSP/SPRING ${USER_INFO.name}
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/login">JSP/SPRING ${USER_INFO.name}
 				<c:if test="${USER_INFO == null}">
 					접속하지 않은 사용자 입니다
 				</c:if>
