@@ -97,16 +97,48 @@ JSP/SERVLET
 * serverside cookie 설정
     * 쿠키조회 : Cookie[] cookies = request.getCookies();
     * 쿠키설정 : Cookie cookie = new Cokie("쿠키이름", "쿠키값");, cookie.setMaxAge(초단위);, response.addCookie(cookie);
-   
 * jdbc connection
     * jdbc 방식
     * datasource 방식
-   
 * dbcp connection pooling 개선
     * web.xml 설정 내용을 주석 처리
-   
 * 문자열 계산기 테스트 주도 개발
     * 정규표현식 캡쳐링, 그룹가져오기
+* el, jstl
+    * 스크립틀릿, 표현식을 jsp에서 걷어내기 --> el, jstl 사용
+    * jstl - <c:forEach>, <c:set>, <c:if>
+    * el - ${속성명}
+* maven compiler plugin
+    * encoding 설정
+* 사용자 상세조회 페이지 개발 
+    * 사용자 사진 응답 생성 servlet (fileInputStream -> ServletOutputStream)
+    * 사용자 등록 페이지 화면 준비
+    * 사용자 컬럼 추가(addr1, addr2, zipcd, path, filename, birth)
+* birth date 필드 포맷팅 관련 예저 
+    * 새로운 getter 생성
+    * 쿼리 to_char(birth) 이용하여 새로운 조회컬럼 생성, userVo 수정
+    * <fmt:formateDate value="${userVo.birth}" format="yyyy-MM-dd"/>
+* 파일 업로드 기능 구현
+    * form
+         * method = "post"
+         * enctype = "multipart/form-data"
+    * servlet
+         *  @MultipartConfig(maxFileSize=1024*1024*3,maxRequestSize=1024*1024*15)
+    * useage
+         * Part part = request.getPart("명칭");
+         * if(part.getSize > 0)
+* 사용자 수정 로직 개선 
+    * profile 수정 기능 추가
+    * no-image 반영
+    * PartUtil을 통한 로직 재활용
+* 암호화 알고리즘 적용
+    * Hash 알고리즘 로그인 요청 로직 적용
+* 암호화 모듈적용 
+    * 사용자 정보 수정로직 (비밀번호 암호화)
+    * 블록 암호화 테스트 (KISA ARIA)
+    * 사용자 비밀번호 일괄 암호화 적용 batch
+* custom tag
+* Filter
    
 ## Author
 * Bumhwi Kim (김범휘) : https://github.com/bumpercar93
