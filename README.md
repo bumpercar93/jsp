@@ -44,6 +44,23 @@ JSP/SERVLET
 * request 객체 정보 확인 
     * request 정보(ContextPath, requestURI)
     * request header 정보(웹브라우저가 작성, 사용자 환경 os, web browser)
+* jsp파일 parameter 받기
+    * timesTables.jsp에 파라미터 적용
+* login 로직 개발(화면, 프로세스)
+* login 화면 bootstrap 적용
+* jsp를 이용한 파일 다운로드 응답
+* 응답 위임하기
+    * redirect
+        * response.sendRdirect("path");
+        * 요청이 두번 발생
+        * 최초 요청과, 두번째 요청은 다르기 때문에 파라미터를 공유할 수 없다
+        * 주소줄에는 redirect된 주소가 표시된다
+    * request dispatch
+        * request.getRequestDispatcher("path").forward(request, response);
+        * 요청이 한번 발생
+        * 주소줄에는 최초 요청한 주소가 표시된다
+        * 서버내에서 위임이 이루어 지기 때문에 request, response 객체가 공유된다
+        * 요청 파라미터를 공유할 수 있다
  
 ## Author
 * Bumhwi Kim (김범휘) : https://github.com/bumpercar93
