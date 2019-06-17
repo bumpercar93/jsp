@@ -66,6 +66,20 @@ JSP/SERVLET
     * 로그인 성공 후 main 화면 작성
 * jsp 내장객체
     * out, application, pageContext
+* scope 실습
+    * pageContext, request, session, application
+    * scope 실습 예제
+         * 두수 사이의 합 구하기 합결과 session 저장
+         * 두수 사이의 곱 구하기 곱결과 session 저장
+ * 사용자 리시트 화면 개발
+    * userService : 임이의 가짜 값을 리턴(추후 수정 예정)
+ * 로그인 프로세스 개선
+    * 정상 로그인 사용자 로그인 화면 요청시 main.jsp로 이동
+    * 페이지 모듈화 적용
+         * jsp include 지시자 사용
+         * header, left, basicLib 3개로 모듈화
+* mybatis 환경설정
+    * userDao - mybatis 적용
  
 ## Author
 * Bumhwi Kim (김범휘) : https://github.com/bumpercar93
