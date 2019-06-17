@@ -61,6 +61,11 @@ JSP/SERVLET
         * 주소줄에는 최초 요청한 주소가 표시된다
         * 서버내에서 위임이 이루어 지기 때문에 request, response 객체가 공유된다
         * 요청 파라미터를 공유할 수 있다
+* Login 처리 프로세스 수정
+    * redirect, dispatch 방식 적용
+    * 로그인 성공 후 main 화면 작성
+* jsp 내장객체
+    * out, application, pageContext
  
 ## Author
 * Bumhwi Kim (김범휘) : https://github.com/bumpercar93
