@@ -27,5 +27,9 @@ JSP/SERVLET
 * Listener를 이용한 이벤트 감지, 처리
 * 파일 업로드, 다운로드
 
+## 상세 내용
+* logback 라이브러리 추가
+  * sysout 로직 logger로 개선
+
 ## Author
 * Bumhwi Kim (김범휘) : https://github.com/bumpercar93
