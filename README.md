@@ -26,6 +26,7 @@ JSP/SERVLET
 * Wrapper 사용
 * Listener를 이용한 이벤트 감지, 처리
 * 파일 업로드, 다운로드
+* JDBC Connection
 
 ## 상세 내용
 * logback 라이브러리 추가
@@ -85,12 +86,27 @@ JSP/SERVLET
     * service객체에서 dao메소드를 여러개 호출 할 수도 있다.
     * 페이지네이션 링크 출력 개발 (자바코드와 html 태그가 복잡하게 섞여 있는 형태 --> jstl, el 가독성이 좋게 개선)
 * error page 설정
-    1. jsp page 지시자에 errorPage 속성 설정
+    * jsp page 지시자에 errorPage 속성 설정
           * jsp 페이지별 에러 페이지 설정이라 실질적으로 사용하기는 힘듬
-    2. 예외 타입별 설정
+    * 예외 타입별 설정
           * web.xml에 <error-page>, <exception-type>별 설정
-    3. 응답 상태별 설정
+    * 응답 상태별 설정
           * web.xml에 <error-page>, <exception-code>별 설정
- 
+* cookie를 이용한 remember me 적용
+* js.cookie.js 적용
+* serverside cookie 설정
+    * 쿠키조회 : Cookie[] cookies = request.getCookies();
+    * 쿠키설정 : Cookie cookie = new Cokie("쿠키이름", "쿠키값");, cookie.setMaxAge(초단위);, response.addCookie(cookie);
+   
+* jdbc connection
+    * jdbc 방식
+    * datasource 방식
+   
+* dbcp connection pooling 개선
+    * web.xml 설정 내용을 주석 처리
+   
+* 문자열 계산기 테스트 주도 개발
+    * 정규표현식 캡쳐링, 그룹가져오기
+   
 ## Author
 * Bumhwi Kim (김범휘) : https://github.com/bumpercar93
