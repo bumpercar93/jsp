@@ -80,6 +80,17 @@ JSP/SERVLET
          * header, left, basicLib 3개로 모듈화
 * mybatis 환경설정
     * userDao - mybatis 적용
+* JUnit을 이용한 단위 테스트 적용
+* 사용자 페이징 리스트 개발
+    * service객체에서 dao메소드를 여러개 호출 할 수도 있다.
+    * 페이지네이션 링크 출력 개발 (자바코드와 html 태그가 복잡하게 섞여 있는 형태 --> jstl, el 가독성이 좋게 개선)
+* error page 설정
+    1. jsp page 지시자에 errorPage 속성 설정
+          * jsp 페이지별 에러 페이지 설정이라 실질적으로 사용하기는 힘듬
+    2. 예외 타입별 설정
+          * web.xml에 <error-page>, <exception-type>별 설정
+    3. 응답 상태별 설정
+          * web.xml에 <error-page>, <exception-code>별 설정
  
 ## Author
 * Bumhwi Kim (김범휘) : https://github.com/bumpercar93
