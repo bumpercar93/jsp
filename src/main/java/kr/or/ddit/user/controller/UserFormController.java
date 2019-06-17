@@ -45,7 +45,6 @@ public class UserFormController extends HttpServlet {
 	// 사용자 등록 요청 처리
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("userForm doPost");
-		request.setCharacterEncoding("utf-8");
 		
 		// 사용자가 보낸 파라미터를 사용해서 UserVO 인스턴스를 만들어서 
 		String userId = request.getParameter("userId");

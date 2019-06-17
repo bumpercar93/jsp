@@ -30,7 +30,7 @@
 <body>
 	<h2>select locale</h2>
 	
-	<form id="frm" action="${pageContext.request.contextPath}/selectLocale" method="post">
+	<form id="frm" action="${cp}/selectLocale" method="post">
 		<input id="hi1" type="hidden" value="${locale}" />
 		<input id="hi2" type="hidden" name="hi2" />
 		

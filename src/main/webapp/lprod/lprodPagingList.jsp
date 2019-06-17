@@ -65,7 +65,7 @@
 										</c:when>
 										<c:otherwise>
 											<li>
-												<a href="${pageContext.request.contextPath}/lprodPagingList?
+												<a href="${cp}/lprodPagingList?
 												page=${pageVO.page-1}&pageSize=${pageVO.pageSize}"><span>«</span></a>
 											</li>
 										</c:otherwise>
@@ -80,7 +80,7 @@
 											</c:when>
 											<c:otherwise>
 												<li>
-													<a href="${pageContext.request.contextPath}/lprodPagingList?page=${i}
+													<a href="${cp}/lprodPagingList?page=${i}
 													&pageSize=${pageVO.pageSize}">${i}</a>
 												</li>
 											</c:otherwise>
@@ -93,7 +93,7 @@
 										</c:when>
 										<c:otherwise>
 											<li>
-												<a href="${pageContext.request.contextPath}/lprodPagingList?
+												<a href="${cp}/lprodPagingList?
 												page=${pageVO.page+1}&pageSize=${pageVO.pageSize}"><span>»</span></a>
 											</li>
 										</c:otherwise>

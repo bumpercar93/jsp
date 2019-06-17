@@ -18,7 +18,7 @@
 </head>
 <body>
 	
-	<form id="frm" action="${pageContext.request.contextPath}/selectLocale2">
+	<form id="frm" action="${cp}/selectLocale2">
 		<select id="selectBox" name="locale">
 			<option value="ko">한국어</option>
 			<option value="en">English</option>
