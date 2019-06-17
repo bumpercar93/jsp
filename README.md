@@ -29,20 +29,21 @@ JSP/SERVLET
 
 ## 상세 내용
 * logback 라이브러리 추가
- * sysout 로직 logger로 개선
+    * sysout 로직 logger로 개선
 * url 테스트(webapp 폴더 접근 url 확인)
- * WEB-INF 외부에서 접근이 안됨
- * localhost/jsp/img/james.png (O)
- * localhost/jsp/WEB-INF/james.png (X)
+    * WEB-INF 외부에서 접근이 안됨
+    * localhost/jsp/img/james.png (O)
+    * localhost/jsp/WEB-INF/james.png (X)
 * jsp기초 시작
- * jsp : html코드에 java 코드를 삽입하는 형태
+    * jsp : html코드에 java 코드를 삽입하는 형태
 * jsp 선언부 실습
- * <%! %> : 선언부
- * <% %> : 스크립틀릿(자바 로직 작성 영역)
- * <%= %> : 표현식(값 표현)
- * <%-- %> : jsp 주석
+    * <%! %> : 선언부
+    * <% %> : 스크립틀릿(자바 로직 작성 영역)
+    * <%= %> : 표현식(값 표현)
+    * <%-- %> : jsp 주석
 * request 객체 정보 확인 
- * request 정보(ContextPath, requestURI)
- * request header 정보(웹브라우저가 작성, 사용자 환경 os, web browser)
+    * request 정보(ContextPath, requestURI)
+    * request header 정보(웹브라우저가 작성, 사용자 환경 os, web browser)
+ 
 ## Author
 * Bumhwi Kim (김범휘) : https://github.com/bumpercar93
