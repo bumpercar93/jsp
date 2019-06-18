@@ -34,18 +34,14 @@ public class LoginCheckFilter implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 		
 		// 세션이 없어도 처리가 되어야 되는 것들 : /login, .js, .css, .img --> /js, /css, /img
-		if(uri.startsWith("/login") || uri.startsWith("/js") || uri.startsWith("/css") || uri.startsWith("/img"))
+		if(uri.startsWith("/login") || uri.startsWith("/js") || 
+				uri.startsWith("/css") || uri.startsWith("/img") || uri.startsWith("/bootstrap"))
 			chain.doFilter(request, response);
 		// Session을 체크해야하는 대상들
 		else if(req.getSession().getAttribute("USER_INFO") != null)
 			chain.doFilter(request, response);
 		else
 			res.sendRedirect(req.getContextPath() + "/login");
-		
-			
-		
-		
-		
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
