@@ -33,7 +33,6 @@ public class LprodServiceImplTest {
 		/***Then***/
 		assertEquals(5, lprodList.size());
 		assertEquals(2, paginationSize);
-		
 	}
 
 }
